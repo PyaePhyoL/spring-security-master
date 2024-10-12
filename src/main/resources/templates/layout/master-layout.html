@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layout(content)"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../../static/bootstrap-5.3.3/css/bootstrap.min.css" th:href="@{/bootstrap-5.3.3/css/bootstrap.min.css}">
+</head>
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-primary text-white">
+        <div class="container">
+            <a href="" class="navbar-brand">Spring Security</a>
+            <button class="navbar-toggler" data-bs-target="#myNav" data-bs-toggle="collapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div id="myNav" class="collapse navbar-collapse">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a th:href="@{/}" class="nav-link"> Home </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/list-employee}" class="nav-link"> Employee </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{/list-customer}" class="nav-link"> Customer </a>
+                    </li>
+                    <li class="nav-item">
+                        <a th:href="@{list-department}" class="nav-link"> Department </a>
+                    </li>
+                    <li sec:authorize="!isAuthenticated()" class="nav-item">
+                        <a th:href="@{/login}" class="nav-link"> Login </a>
+                    </li>
+                    <li sec:authorize="!isAuthenticated()" class="nav-item">
+                        <a th:href="@{/signup-form}" class="nav-link"> Signup </a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item">
+                        <a th:href="@{/account}" class="nav-link">Account Info</a>
+                    </li>
+                    <li sec:authorize="isAuthenticated()" class="nav-item">
+<!--                        <a th:href="@{/logout}" class="nav-link">Logout</a>    -->
+                        <a href="javascript: document.logoutForm.submit()" class="nav-link">Logout</a>
+                        <form name="logoutForm" th:action="@{/logout}" method="post" hidden="true">
+                            <input type="submit" value="logout" hidden>
+                        </form>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+
+    <div th:replace="${content}"></div>
+
+</body>
+</html>

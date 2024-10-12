@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/master-layout :: layout(~{::main})}">
+
+<body>
+    <main role="main">
+        <div class="container mt-5">
+            <a th:href="@{/customer-form}" class="btn btn-primary mb-3">Add Customer</a>
+            <div class="row">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3>Customers</h3>
+                        </div>
+                        <table class="table table-striped">
+                            <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Code</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Address</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr th:each="cust : ${customers}">
+                                <td th:text="${cust.id}"></td>
+                                <td th:text="${cust.code}"></td>
+                                <td th:text="${cust.firstName}"></td>
+                                <td th:text="${cust.lastName}"></td>
+                                <td th:text="${cust.address}"></td>
+                                <td>
+                                    <a th:href="@{'/delete-customer?id=' + ${cust.id}}" class="btn btn-outline-danger">Delete</a>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+</body>
+</html>

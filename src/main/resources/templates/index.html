@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/master-layout :: layout(~{::main})}">
+<body>
+
+    <main role="main" class="bg-light">
+        <div class="container mt-5">
+            <h3 class="display-3">Welcome to Spring Security Master</h3>
+            <p>This is a homepage accessible to everyone.</p>
+            <p>Use menu above to navigate to protected resources.</p>
+
+            <p>Accounts below are available in the system to explore Spring Security examples.</p>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">john</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">SUPER_ADMIN</h6>
+                            <p>Username: john</p>
+                            <p>Password: john</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">emma</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">EMPLOYEES_ADMIN</h6>
+                            <p>Username: emma</p>
+                            <p>Password: emma</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">william</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">DEPARTMENTS_PAG_VIEW, DEPARTMENTS_READ,
+                                DEPARTMENTS_CREATE</h6>
+                            <p>Username: william</p>
+                            <p>Password: william</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">lucas</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">CUSTOMERS_PAG_VIEW, CUSTOMERS_READ</h6>
+                            <p>Username: lucas</p>
+                            <p>Password: lucas</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title">tom</h5>
+                            <h6 class="card-subtitle mb-2 text-muted">No roles</h6>
+                            <p>Username: tom</p>
+                            <p>Password: tom</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+</body>
+</html>

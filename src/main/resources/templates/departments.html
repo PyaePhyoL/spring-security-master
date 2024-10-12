@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{layout/master-layout :: layout(~{::main})}">
+
+<body>
+
+  <main role="main">
+    <div class="container mt-5">
+      <a th:href="@{/department-form}" class="btn btn-primary mb-3">Add Department</a>
+      <div class="row">
+        <div class="col">
+          <div class="card">
+            <div class="card-header">
+              <h3>Departments</h3>
+            </div>
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Id</th>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Country</th>
+                <th>Action</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="dep : ${departments}">
+                <td th:text="${dep.id}"></td>
+                <td th:text="${dep.code}"></td>
+                <td th:text="${dep.name}"></td>
+                <td th:text="${dep.country}"></td>
+                <td>
+                  <a th:href="@{'/delete-department/' + ${dep.id}}" class="btn btn-outline-danger">Delete</a>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+</body>
+</html>
